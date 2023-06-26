@@ -11,4 +11,5 @@ return [
     'more_popular' => 'Más popular',
     'newer' => 'Más nuevos',
     'search' => 'Buscar',
+    'application_management' => 'Gestión de aplicaciones',
 ];

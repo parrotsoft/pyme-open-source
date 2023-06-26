@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OperativeSystemSeeder::class);
         $this->call(CategoriesSeeder::class);
         $this->call(ApplicationsSeeder::class);
+        $this->call(RoleSeeder::class);
     }
 }
