@@ -36,10 +36,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Sistema operativo</h5>
                         <ul>
-                            <li>Windows</li>
-                            <li>Linux</li>
-                            <li>Android</li>
-                            <li>IOS</li>
+                            @foreach($operativeSystems as $operativeSystem)
+                                <li>{{ $operativeSystem->description }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -48,10 +47,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Categoria</h5>
                         <ul>
-                            <li>Ofimática</li>
-                            <li>Negocios</li>
-                            <li>Educacación</li>
-                            <li>Multimedia</li>
+                            @foreach($categories as $category)
+                                <li>{{ $category->description }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -60,43 +58,25 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <div class="card mb-3">
-                            <div class="row g-0">
-                                <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                    <img src="https://a.fsdn.com/con/app/nel_img/11941" class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">LibreOffice</h5>
-                                        <p class="card-text">LibreOffice es una suite ofimática gratuita y potente. Procesador de textos, hojas de cálculo, presentaciones, diagramas, bases de datos, editores de fórmulas, gráficos y más. Compatible con Windows, Mac y Linux.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                        <div class="float-end mb-4">
-                                            <a href="#" class="btn btn-primary">Descargar</a>
+                        @foreach($applications as $application)
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                        <img src="{{ $application->image }}" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $application->name }}</h5>
+                                            <p class="card-text">{{ $application->description }}</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                            <div class="float-end mb-4">
+                                                <a href="#" class="btn btn-primary">Descargar</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="card mb-3">
-                            <div class="row g-0">
-                                <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                    <img src="https://a.fsdn.com/allura/mirror/openofficeorg/icon?1675777998?&w=120" class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Apache OpenOffice</h5>
-                                        <p class="card-text">Alternativa gratuita para las herramientas de productividad de Office: Apache OpenOffice, anteriormente conocido como OpenOffice.org, es un paquete de software de productividad de oficina de código abierto que contiene procesadores de texto, hojas de cálculo, presentaciones, gráficos.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                        <div class="float-end mb-4">
-                                            <a href="#" class="btn btn-primary">Descargar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
 
                     </div>
                 </div>

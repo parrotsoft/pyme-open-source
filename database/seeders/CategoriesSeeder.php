@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategoriesSeeder extends Seeder
@@ -20,7 +20,7 @@ class CategoriesSeeder extends Seeder
         ];
 
         foreach ($data as $row) {
-            Categories::query()->create([
+            Category::query()->create([
                 'user_id' =>  1,
                 'description' => $row,
             ]);

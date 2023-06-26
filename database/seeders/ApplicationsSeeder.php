@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Applications;
+use App\Models\Application;
 use Illuminate\Database\Seeder;
 
 class ApplicationsSeeder extends Seeder
@@ -34,7 +34,7 @@ class ApplicationsSeeder extends Seeder
         ];
 
         foreach ($data as $row) {
-            Applications::query()->create($row);
+            Application::query()->create($row);
         }
     }
 }

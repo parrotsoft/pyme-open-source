@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Categories;
+use App\Models\Category;
 use App\Models\OperativeSystem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Applications>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Application>
  */
 class ApplicationsFactory extends Factory
 {
@@ -20,7 +20,7 @@ class ApplicationsFactory extends Factory
     {
         return [
             'operative_system_id' => OperativeSystem::factory()->create(),
-            'category_id' => Categories::factory()->create(),
+            'category_id' => Category::factory()->create(),
             'name' => $this->faker->word,
             'description' => $this->faker->word,
             'image' => $this->faker->imageUrl,
