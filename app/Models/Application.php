@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Application extends Model
@@ -12,6 +13,11 @@ class Application extends Model
     use SoftDeletes;
 
     protected $table = 'applications';
+
+    protected $with = [
+        'operativeSystem',
+        'category',
+    ];
 
     protected $fillable = [
         'user_id',
@@ -38,5 +44,15 @@ class Application extends Model
         'star' => 'integer',
         'active' => 'boolean',
     ];
+
+    public function operativeSystem(): BelongsTo
+    {
+        return $this->belongsTo(OperativeSystem::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }
