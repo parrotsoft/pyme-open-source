@@ -58,7 +58,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->givePermissionTo('create_applications'))
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{ route('applications.index') }}">
                                             {{ __('home.application_management') }}
                                         </a>
                                     @endif

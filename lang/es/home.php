@@ -12,4 +12,11 @@ return [
     'newer' => 'Más nuevos',
     'search' => 'Buscar',
     'application_management' => 'Gestión de aplicaciones',
+    'new_application' => 'Nueva aplicación',
+    'description' => 'Descripción',
+    'image' => 'Imagen',
+    'link' => 'Link',
+    'version' => 'Versión',
+    'star' => 'Estrellas',
+    'store' => 'Guardar',
 ];

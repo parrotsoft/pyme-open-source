@@ -17,6 +17,7 @@ class Application extends Model
     protected $with = [
         'operativeSystem',
         'category',
+        'user',
     ];
 
     protected $fillable = [
@@ -45,6 +46,10 @@ class Application extends Model
         'active' => 'boolean',
     ];
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
     public function operativeSystem(): BelongsTo
     {
         return $this->belongsTo(OperativeSystem::class);
