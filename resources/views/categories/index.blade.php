@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('home.categories_management'))
+
 @section('content')
     <div class="container">
 

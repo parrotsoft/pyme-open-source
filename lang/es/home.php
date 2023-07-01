@@ -25,4 +25,5 @@ return [
     'categories_management' => 'Gestión de categorías',
     'new_category' => 'Nueva categoría',
     'new' => 'Nueva',
+    'home' => 'Inicio',
 ];

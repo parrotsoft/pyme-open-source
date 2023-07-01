@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('home.new_category'))
+
 @section('content')
     <div class="container">
 
