@@ -31,6 +31,7 @@ class Application extends Model
         'version',
         'star',
         'active',
+        'tutorial_link',
     ];
 
     protected $casts = [
@@ -44,6 +45,7 @@ class Application extends Model
         'version' => 'string',
         'star' => 'integer',
         'active' => 'boolean',
+        'tutorial_link' => 'string',
     ];
 
     public function user(): BelongsTo

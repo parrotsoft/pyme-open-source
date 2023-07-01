@@ -19,4 +19,6 @@ return [
     'version' => 'Versión',
     'star' => 'Estrellas',
     'store' => 'Guardar',
+    'all' => 'Todos',
+    'tutorial' => 'Tutorial',
 ];

@@ -28,6 +28,7 @@ class ApplicationsFactory extends Factory
             'version' => $this->faker->word,
             'star' => $this->faker->randomElement([1,2,3,4,5]),
             'active' => $this->faker->randomElement([true, false]),
+            'tutorial_link' => $this->faker->url,
         ];
     }
 }
