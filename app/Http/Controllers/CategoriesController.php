@@ -20,9 +20,15 @@ class CategoriesController extends Controller
         return view('categories.create');
     }
 
+    public function edit(int $id)
+    {
+        $category = Category::query()->find($id);
+        return view('categories.create', compact('category'));
+    }
+
     public function store(Request $request): RedirectResponse
     {
-        $validator = $request->validate([
+        $request->validate([
             'description' => 'required',
         ]);
 
@@ -30,6 +36,24 @@ class CategoriesController extends Controller
 
         Category::query()->create($request->all());
 
+        return redirect(route('categories.index'));
+    }
+
+    public function update(Request $request, int $id)
+    {
+        $request->validate([
+            'description' => 'required',
+        ]);
+
+        Category::query()->find($id)->update([
+            'description' => $request->get('description')
+        ]);
+        return redirect(route('categories.index'));
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        Category::query()->find($id)->delete();
         return redirect(route('categories.index'));
     }
 }

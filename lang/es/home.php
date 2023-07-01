@@ -19,6 +19,7 @@ return [
     'version' => 'Versión',
     'star' => 'Estrellas',
     'store' => 'Guardar',
+    'update' => 'Actualizar',
     'all' => 'Todos',
     'tutorial' => 'Tutorial',
     'categories_management' => 'Gestión de categorías',

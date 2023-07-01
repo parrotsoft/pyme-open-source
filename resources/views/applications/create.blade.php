@@ -11,8 +11,12 @@
 
         <div class="row mt-4">
             <div class="col-8">
-                <form method="POST" action="{{ route('applications.store') }}" autocomplete="off">
+                <form method="POST" action="{{ isset($application) ? route('applications.update', $application->id) : route('applications.store') }}" autocomplete="off">
                     @csrf
+
+                    @if(isset($application))
+                        @method('PUT')
+                    @endif
 
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('home.operative_system') }}</label>
@@ -21,7 +25,7 @@
                             <select class="form-control @error('operative_system_id') is-invalid @enderror"  name="operative_system_id" id="operative_system_id" autofocus>
                                 <option selected disabled>Seleccione una opción</option>
                                 @foreach($operativeSystems as $operativeSystem)
-                                    <option value="{{ $operativeSystem->id }}">{{ $operativeSystem->description }}</option>
+                                    <option {{ old('operative_system_id', isset($application) ? $application->operative_system_id : '') == $operativeSystem->id ? 'selected' : '' }} value="{{ $operativeSystem->id }}">{{ $operativeSystem->description }}</option>
                                 @endforeach
                             </select>
 
@@ -40,7 +44,7 @@
                             <select class="form-control @error('category_id') is-invalid @enderror"  name="category_id" id="category_id" >
                                 <option selected disabled>Seleccione una opción</option>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->description }}</option>
+                                    <option {{ old('category_id', isset($application) ? $application->category_id : '') == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->description }}</option>
                                 @endforeach
                             </select>
 
@@ -56,7 +60,8 @@
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('register.name') }}</label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" >
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                                   value="{{ old('name', isset($application) ? $application->name : '') }}" required autocomplete="name" >
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -70,7 +75,7 @@
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('home.description') }}</label>
 
                         <div class="col-md-6">
-                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="10"></textarea>
+                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="10">{{ old('description', isset($application) ? $application->description : '') }}</textarea>
 
                             @error('description')
                             <span class="invalid-feedback" role="alert">
@@ -84,7 +89,8 @@
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('home.image') }}</label>
 
                         <div class="col-md-6">
-                            <input id="image" name="image" type="text" class="form-control @error('image') is-invalid @enderror" value="{{ old('image') }}" required>
+                            <input id="image" name="image" type="text" class="form-control @error('image') is-invalid @enderror"
+                                   value="{{ old('image', isset($application) ? $application->image : '') }}" required>
 
                             @error('image')
                             <span class="invalid-feedback" role="alert">
@@ -98,7 +104,8 @@
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('home.link') }}</label>
 
                         <div class="col-md-6">
-                            <input id="link" type="url" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') }}">
+                            <input id="link" type="url" class="form-control @error('link') is-invalid @enderror" name="link"
+                                   value="{{ old('link', isset($application) ? $application->link : '') }}">
 
                             @error('link')
                             <span class="invalid-feedback" role="alert">
@@ -112,7 +119,8 @@
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('home.version') }}</label>
 
                         <div class="col-md-6">
-                            <input id="version" type="text" class="form-control @error('version') is-invalid @enderror" name="version" value="{{ old('version') }}">
+                            <input id="version" type="text" class="form-control @error('version') is-invalid @enderror" name="version"
+                                   value="{{ old('version', isset($application) ? $application->version : '') }}">
 
                             @error('version')
                             <span class="invalid-feedback" role="alert">
@@ -126,7 +134,8 @@
                         <label for="tutorial_link" class="col-md-4 col-form-label text-md-end">{{ __('home.tutorial') }}</label>
 
                         <div class="col-md-6">
-                            <input id="tutorial_link" type="url" class="form-control @error('tutorial_link') is-invalid @enderror" name="tutorial_link" value="{{ old('tutorial_link') }}">
+                            <input id="tutorial_link" type="url" class="form-control @error('tutorial_link') is-invalid @enderror" name="tutorial_link"
+                                   value="{{ old('tutorial_link', isset($application) ? $application->tutorial_link : '') }}">
 
                             @error('tutorial_link')
                             <span class="invalid-feedback" role="alert">
@@ -144,11 +153,9 @@
                         <div class="col-md-6">
                             <select name="star" id="star" class="form-control @error('star') is-invalid @enderror">
                                 <option disabled selected>Seleccione una opción</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                @foreach($stars as $star)
+                                    <option {{ old('star', isset($application) ? $application->star : '') == $star ? 'selected' : '' }} value="{{ $star }}">{{ $star }}</option>
+                                @endforeach
                             </select>
 
                             @error('star')
@@ -162,7 +169,7 @@
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('home.store') }}
+                                {{ isset($application) ? __('home.update') : __('home.store') }}
                             </button>
                         </div>
                     </div>
