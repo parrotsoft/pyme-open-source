@@ -26,6 +26,13 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ __('home.operative_systems') }}</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioSo" id="soall"
+                               wire:model="filterSO" value="">
+                        <label class="form-check-label" for="soall">
+                            {{ __('home.all') }}
+                        </label>
+                    </div>
                     @foreach($operativeSystems as $operativeSystem)
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioSo" id="so{{ $operativeSystem->id }}"
@@ -41,6 +48,13 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <h5 class="card-title">{{ __('home.categories') }}</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioCategory" id="category"
+                               wire:model="filterCategory" value="">
+                        <label class="form-check-label" for="category">
+                            {{ __('home.all') }}
+                        </label>
+                    </div>
                     @foreach($categories as $category)
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioCategory" id="category-{{ $category->id }}"
@@ -75,6 +89,7 @@
                                         </h6>
                                         <div class="float-end mb-4">
                                             <a href="#" class="btn btn-dark">{{ __('home.download') }}</a>
+                                            <a href="{{ $application->tutorial_link }}" target="_blank" class="btn btn-info">{{ __('home.tutorial') }}</a>
                                         </div>
                                     </div>
                                 </div>

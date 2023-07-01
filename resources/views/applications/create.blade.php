@@ -98,7 +98,7 @@
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('home.link') }}</label>
 
                         <div class="col-md-6">
-                            <input id="link" type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') }}">
+                            <input id="link" type="url" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') }}">
 
                             @error('link')
                             <span class="invalid-feedback" role="alert">
@@ -121,6 +121,22 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="row mb-3">
+                        <label for="tutorial_link" class="col-md-4 col-form-label text-md-end">{{ __('home.tutorial') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="tutorial_link" type="url" class="form-control @error('tutorial_link') is-invalid @enderror" name="tutorial_link" value="{{ old('tutorial_link') }}">
+
+                            @error('tutorial_link')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+
+
 
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('home.star') }}</label>
