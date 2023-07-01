@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationsController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::resource('applications', ApplicationsController::class)
     ->names('applications');
+Route::resource('categories', CategoriesController::class)
+    ->names('categories');
 
 Auth::routes();
 

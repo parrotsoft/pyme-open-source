@@ -61,6 +61,9 @@
                                         <a class="dropdown-item" href="{{ route('applications.index') }}">
                                             {{ __('home.application_management') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('categories.index') }}">
+                                            {{ __('home.categories_management') }}
+                                        </a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

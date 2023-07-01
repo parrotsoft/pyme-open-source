@@ -21,4 +21,7 @@ return [
     'store' => 'Guardar',
     'all' => 'Todos',
     'tutorial' => 'Tutorial',
+    'categories_management' => 'Gestión de categorías',
+    'new_category' => 'Nueva categoría',
+    'new' => 'Nueva',
 ];
