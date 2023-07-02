@@ -16,15 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth')->group(function () {
+    Route::resource('applications', ApplicationsController::class)
+        ->names('applications');
+    Route::get('applications/destroy/{id}', [ApplicationsController::class, 'destroy'])
+        ->name('applications.destroy');
+    Route::resource('categories', CategoriesController::class)
+        ->names('categories');
+    Route::get('categories/destroy/{id}', [CategoriesController::class, 'destroy'])
+        ->name('categories.destroy');
+});
+
 Route::get('/', [HomeController::class, 'index']);
-Route::resource('applications', ApplicationsController::class)
-    ->names('applications');
-Route::get('applications/destroy/{id}', [ApplicationsController::class, 'destroy'])
-    ->name('applications.destroy');
-Route::resource('categories', CategoriesController::class)
-    ->names('categories');
-Route::get('categories/destroy/{id}', [CategoriesController::class, 'destroy'])
-    ->name('categories.destroy');
 
 Auth::routes();
 
