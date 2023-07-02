@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -60,6 +60,9 @@
                                     @if(Auth::user()->givePermissionTo('create_applications'))
                                         <a class="dropdown-item" href="{{ route('applications.index') }}">
                                             {{ __('home.application_management') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('categories.index') }}">
+                                            {{ __('home.categories_management') }}
                                         </a>
                                     @endif
 

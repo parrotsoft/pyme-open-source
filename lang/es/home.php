@@ -19,6 +19,11 @@ return [
     'version' => 'Versión',
     'star' => 'Estrellas',
     'store' => 'Guardar',
+    'update' => 'Actualizar',
     'all' => 'Todos',
     'tutorial' => 'Tutorial',
+    'categories_management' => 'Gestión de categorías',
+    'new_category' => 'Nueva categoría',
+    'new' => 'Nueva',
+    'home' => 'Inicio',
 ];

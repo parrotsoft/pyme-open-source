@@ -22,9 +22,14 @@ class ApplicationsController extends Controller
         return view('applications.create', new ApplicationViewModel());
     }
 
+    public function edit(int $id)
+    {
+        return view('applications.create', new ApplicationViewModel($id));
+    }
+
     public function store(Request $request): RedirectResponse
     {
-        $validator = $request->validate([
+        $request->validate([
             'operative_system_id' => 'required',
             'category_id' => 'required',
             'name' => 'required',
@@ -38,5 +43,21 @@ class ApplicationsController extends Controller
 
         return redirect(route('applications.index'));
 
+    }
+
+    public function update(Request $request, int $id): RedirectResponse
+    {
+        $request->request->add(['user_id' => Auth::user()->getAuthIdentifier()]);
+        Application::query()->find($id)
+            ->update($request->all());
+
+        return redirect(route('applications.index'));
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        Application::query()->find($id)
+            ->delete();
+        return redirect(route('applications.index'));
     }
 }

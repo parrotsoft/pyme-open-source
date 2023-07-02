@@ -6,6 +6,8 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Application;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
+use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
+use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 
 class ApplicationTable extends DataTableComponent
 {
@@ -37,12 +39,19 @@ class ApplicationTable extends DataTableComponent
                 ->sortable(),
             Column::make("Estrellas", "star")
                 ->sortable(),
-            BooleanColumn::make('Active','active')
-                ->sortable(),
             Column::make("Creado en", "created_at")
                 ->sortable(),
             Column::make("Actualizado en", "updated_at")
                 ->sortable(),
+            ButtonGroupColumn::make('Opciones')
+            ->buttons([
+                LinkColumn::make('Editar')
+                ->title(fn($row) => 'Editar')
+                ->location(fn($row) => route('applications.edit', $row->id)),
+                LinkColumn::make('Eliminar')
+                ->title(fn($row) => 'Eliminar')
+                ->location(fn($row) => route('applications.destroy', $row->id)),
+            ]),
         ];
     }
 }
