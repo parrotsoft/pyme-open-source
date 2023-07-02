@@ -88,8 +88,8 @@
                                             {{ __('home.category') }} <span class="badge bg-info">{{ $application->category->description }}</span>
                                         </h6>
                                         <div class="float-end mb-4">
-                                            <a href="#" class="btn btn-dark">{{ __('home.download') }}</a>
-                                            <a href="{{ $application->tutorial_link }}" target="_blank" class="btn btn-info">{{ __('home.tutorial') }}</a>
+                                            <a href="#" class="btn btn-danger">{{ __('home.download') }}</a>
+                                            <a href="{{ $application->tutorial_link }}" target="_blank" class="btn btn-primary">{{ __('home.tutorial') }}</a>
                                         </div>
                                     </div>
                                 </div>
