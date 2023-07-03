@@ -1,13 +1,13 @@
 <div>
     <div class="row mt-4">
-        <div class="col-8">
+        <div class="col-12 col-md-8">
             <div class="input-group mb-3">
                 <input class="form-control form-control-lg" type="text" placeholder="Buscar" aria-label=".form-control-lg example"
                 wire:model="searchTerm">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">{{ __('home.search') }}</button>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <div class="dropdown float-end">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ __('home.sort_by') }}:
@@ -22,7 +22,7 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ __('home.operative_systems') }}</h5>
@@ -67,8 +67,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-9">
-            <div class="card">
+        <div class="col-12 col-md-9">
+            <div class="card mt-4 mt-md-0">
                 <div class="card-body">
 
                     @foreach($applications as $application)
@@ -87,7 +87,6 @@
                                             -
                                             {{ __('home.category') }} <span class="badge bg-info">{{ $application->category->description }}</span>
                                         </h6>
-                                        {{ $application }}
                                         <div class="float-end mb-4">
                                             <a href="{{ $application->link }}" target="_blank" class="btn btn-danger">{{ __('home.download') }}</a>
                                             <a href="{{ $application->tutorial_link }}" target="_blank" class="btn btn-primary">{{ __('home.tutorial') }}</a>
