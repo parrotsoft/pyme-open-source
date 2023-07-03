@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/img/favicon.ico') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,13 +18,37 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
+
+    <style>
+        body {
+            color: #848484;
+        }
+        .navbar {
+            background: #84848452 !important;
+        }
+        .nav-item > a {
+            color: #f05854 !important;
+            font-weight: bolder;
+        }
+        .navbar-brand {
+            font-weight: bolder;
+        }
+        .title {
+            color: #f05854 !important;
+            font-weight: bolder;
+            font-size: 1.8em;
+        }
+        .card-title {
+            color: #f05854 !important;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm nav-app">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img width="40" src="{{ asset('storage/img/logo.png') }}" alt={{ config('app.name', 'Laravel') }}">ymeOpenSource
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
